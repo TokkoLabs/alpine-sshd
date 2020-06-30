@@ -1,8 +1,13 @@
 FROM alpine:latest
 
 # ssh-keygen -A generates all necessary host keys (rsa, dsa, ecdsa, ed25519) at default location.
-RUN    apk update \
-    && apk add openssh \
+RUN apk update
+
+RUN KUBERNETES_VERSION="$(wget -qO- https://storage.googleapis.com/kubernetes-release/release/stable.txt)" && \
+    wget https://storage.googleapis.com/kubernetes-release/release/${KUBERNETES_VERSION}/bin/linux/amd64/kubectl -O /usr/local/bin/kubectl && \
+    chmod +x /usr/local/bin/kubectl
+
+RUN apk add openssh \
     && mkdir /root/.ssh \
     && chmod 0700 /root/.ssh \
     && ssh-keygen -A \
