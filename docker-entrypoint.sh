@@ -5,7 +5,7 @@ if [ -z "${AUTHORIZED_KEYS}" ]; then
 fi
 
 echo "Populating /root/.ssh/authorized_keys with the value from AUTHORIZED_KEYS env variable ..."
-echo "${AUTHORIZED_KEYS}" > /root/.ssh/authorized_keys
+echo "${AUTHORIZED_KEYS}" > /home/user/.ssh/authorized_keys
 
 # Execute the CMD from the Dockerfile:
 exec "$@"
