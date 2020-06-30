@@ -12,7 +12,6 @@ chown -R user:group /home/user
 chmod 700 /home/user/.ssh
 chmod 600 /home/user/.ssh/authorized_keys
 
-
 # Execute the CMD from the Dockerfile:
 exec "$@"
 

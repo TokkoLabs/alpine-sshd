@@ -15,11 +15,10 @@ COPY docker-entrypoint.sh /
 EXPOSE 22
 
 RUN addgroup -S group && \
-    adduser -S user -G group
+    adduser -S user -G group --shell /bin/ash --uid 1000 && \
+    echo "user:*" | chpasswd -e
 
 ENTRYPOINT ["/docker-entrypoint.sh"]
 
 # -D in CMD below prevents sshd from becoming a daemon. -e is to log everything to stderr.
 CMD ["/usr/sbin/sshd", "-D", "-e"]
-
-
