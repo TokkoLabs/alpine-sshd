@@ -12,6 +12,10 @@ chown -R user:group /home/user
 chmod 700 /home/user/.ssh
 chmod 600 /home/user/.ssh/authorized_keys
 
+echo "${KUBERNETES_SERVICE_PORT_HTTPS}" > /home/user/.profile
+echo "${KUBERNETES_SERVICE_HOST}" > /home/user/.profile
+echo "${KUBERNETES_SERVICE_PORT}" > /home/user/.profile
+
 # Execute the CMD from the Dockerfile:
 exec "$@"
 
