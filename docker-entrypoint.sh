@@ -10,10 +10,10 @@ echo "${AUTHORIZED_KEYS}" > /home/user/.ssh/authorized_keys
 echo "
  Host *
     ServerAliveInterval 20
-" > /home/user/config
+" > /home/user/.ssh/config
 
 chmod 700 /home/user/.ssh
-chmod 600 /home/user/.ssh/authorized_keys /home/user/config
+chmod 600 /home/user/.ssh/authorized_keys /home/user/.ssh/config
 chown -R user:group /home/user
 
 echo "export KUBERNETES_SERVICE_PORT_HTTPS=${KUBERNETES_SERVICE_PORT_HTTPS}" >> /home/user/.profile
