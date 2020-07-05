@@ -8,7 +8,7 @@ echo "Populating /root/.ssh/authorized_keys with the value from AUTHORIZED_KEYS 
 mkdir /home/user/.ssh/
 echo "${AUTHORIZED_KEYS}" > /home/user/.ssh/authorized_keys
 echo "
- Host *
+Host *
     ServerAliveInterval 20
 " > /home/user/.ssh/config
 
