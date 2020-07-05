@@ -13,6 +13,8 @@ RUN apk add openssh \
     && ssh-keygen -A \
     && sed -i s/^#PasswordAuthentication\ yes/PasswordAuthentication\ no/ /etc/ssh/sshd_config
 
+RUN apk add tmux screen nano vim
+
 # This image expects AUTHORIZED_KEYS environment variable to contain your ssh public key.
 
 COPY docker-entrypoint.sh /
