@@ -7,13 +7,9 @@ fi
 echo "Populating /root/.ssh/authorized_keys with the value from AUTHORIZED_KEYS env variable ..."
 mkdir /home/user/.ssh/
 echo "${AUTHORIZED_KEYS}" > /home/user/.ssh/authorized_keys
-echo "
-Host *
-    ServerAliveInterval 20
-" > /home/user/.ssh/config
 
 chmod 700 /home/user/.ssh
-chmod 600 /home/user/.ssh/authorized_keys /home/user/.ssh/config
+chmod 600 /home/user/.ssh/authorized_keys
 chown -R user:group /home/user
 
 echo "export KUBERNETES_SERVICE_PORT_HTTPS=${KUBERNETES_SERVICE_PORT_HTTPS}" >> /home/user/.profile
