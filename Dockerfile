@@ -12,6 +12,8 @@ RUN apk add openssh \
     && chmod 0700 /root/.ssh \
     && ssh-keygen -A \
     && sed -i s/^#PasswordAuthentication\ yes/PasswordAuthentication\ no/ /etc/ssh/sshd_config
+    && sed -i s/^#ClientAliveInterval\ 0/ClientAliveInterval\ 20/ /etc/ssh/sshd_config
+    && sed -i s/^#ClientAliveCountMax\ 0/ClientAliveCountMax\ 15/ /etc/ssh/sshd_config
 
 RUN apk add tmux screen nano vim
 
